@@ -12,7 +12,7 @@ module Meete
 
     def self.random(query, clear_cache)
       cache = CACHE_DEFAULTS.merge({ force: clear_cache })
-      response = Request.where('deals', cache, query.merge({ limit: MAX_LIMIT }))
+      response = Request.where('deals', cache, query)
       deals = response.fetch('deals', []).map { |deal| Deal.new(deal) }
       [ deals, response[:errors] ]
     end

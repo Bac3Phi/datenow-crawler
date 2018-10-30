@@ -13,7 +13,7 @@ class DealsController < ApplicationController
 
   private
   def query
-    params.fetch(:query, {})
+    request.query_parameters
   end
 
   def clear_cache
