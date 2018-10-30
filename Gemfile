@@ -23,7 +23,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'sqlite3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -33,9 +32,13 @@ gem 'sqlite3'
 gem 'faraday'
 
 group :production do
+  gem 'pg'
   gem 'rails_12factor'
 end
 
+group :test do
+  gem 'sqlite3'
+end
 group :development, :test do
   gem 'pry'
   gem 'byebug'
