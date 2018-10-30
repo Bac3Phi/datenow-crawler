@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1><%= @tag.capitalize %> recipes</h1>
+    <%= link_to "Refresh", root_path(@refresh_params), class: "btn btn-info pull-right" %>
+  </div>
+</div>
+<div class="row">
+  <% if @errors %>
+    <%= @errors[:message] %>
+  <% else %>
+    <% @recipes.each_slice(3) do |recipes| %>
+      <div class="col-sm-3">
+        <% recipes.each do |recipe| %>
+          <div class="RecipeCard">
+            <div class="row">
+              <div class="col-xs-12">
+                <%= link_to recipe_path(recipe.id) do %>
+                  <%= image_tag recipe.avatar, class: 'img-responsive' %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 RecipeCard-description">
+                <h4><%= recipe.title %></h4>
+                <div class="Icon-container">
+                  <div>
+                    <i class="Icon Icon--small Icon-like"></i> <span><%= recipe.id %></span>
+                  </div>
+                  <div>
+                    <i class="Icon Icon--small Icon-clock"></i> <%= recipe.logo %> min
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
