@@ -1,8 +1,40 @@
-.RecipeCard {
-  margin: 3rem 0;
-  box-shadow: 0px 0px 5px #888;
+@import url(https://fonts.googleapis.com/css?family=Geo);
+
+body{background:url('https://photos-3.dropbox.com/thumb/AADg1EjB8hBTVuDbcwMYVarS9fzKwzWdn47x60YlILHbrg/90798659/png/200x200/1/_/0/4/dark_Tire.png/or7d5yt1vrk4n8u/coSwtP0gVz/dark_Tire.png') #333;}
+
+#container {
+  margin:65px auto;
+  width:85px;
 }
 
-.RecipeCard-description {
-  padding: 20px 35px;
+#cat div{
+  width: 6px;
+  height: 6px;
+  background: none;
+  box-shadow: 36px 54px #ebebeb,42px 48px #ebebeb,48px 42px #ebebeb,36px 66px #ebebeb,36px 60px #ebebeb,36px 72px #ebebeb,36px 78px #ebebeb,54px 48px #ebebeb,54px 54px #ebebeb,60px 54px #ebebeb,72px 54px #ebebeb,66px 54px #ebebeb,78px 54px #ebebeb,84px 54px #ebebeb,90px 54px #ebebeb,96px 54px #ebebeb,36px 84px #ebebeb,36px 90px #ebebeb,102px 54px #ebebeb,102px 48px #ebebeb,108px 42px #ebebeb,114px 48px #ebebeb,120px 54px #ebebeb,120px 60px #ebebeb,120px 66px #ebebeb,120px 78px #ebebeb,120px 72px #ebebeb,120px 84px #ebebeb,120px 90px #ebebeb,42px 96px #ebebeb,48px 102px #ebebeb,54px 102px #ebebeb,60px 108px #ebebeb,114px 90px #ebebeb,108px 96px #ebebeb,102px 96px #ebebeb,66px 114px #ebebeb,66px 120px #ebebeb,66px 126px #ebebeb,66px 132px #ebebeb,72px 120px #ebebeb,78px 120px #ebebeb,90px 120px #ebebeb,84px 120px #ebebeb,96px 120px #ebebeb,102px 120px #ebebeb,108px 120px #ebebeb,114px 120px #ebebeb,114px 126px #ebebeb,114px 132px #ebebeb,120px 114px #ebebeb,126px 114px #ebebeb,126px 120px #ebebeb,132px 108px #ebebeb,132px 102px #ebebeb,132px 96px #ebebeb,132px 90px #ebebeb,132px 84px #ebebeb,126px 78px #ebebeb,138px 78px #ebebeb,138px 72px #ebebeb,138px 66px #ebebeb,132px 60px #ebebeb,54px 72px #ebebeb,96px 72px #ebebeb,72px 84px #ebebeb,78px 84px #ebebeb,96px 78px #ebebeb,54px 78px #ebebeb;}
+
+
+#speech {
+  position:relative;
+  width:100px;
+	height:40px;
+	margin:10px -80px;
+	text-align:center;
+	background:#8bae21;	
+  font-size:30px;
+  font-family: 'Geo', sans-serif;
+	color:#fff;
+}
+.text{
+  font-family: 'Geo', sans-serif;
+	color:#fff;
+}
+.fs{
+  font-size:20px;
+}
+li {
+list-style-type:none;
+border-style: solid;
+border-width: 0 20px 20px 0;
+border-color: transparent #8bae21 transparent transparent;
 }

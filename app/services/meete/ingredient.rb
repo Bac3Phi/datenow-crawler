@@ -7,6 +7,7 @@ module Meete
                   :point,
                   :avatar,
                   :logo,
-                  :percent
+                  :percent,
+                  :unit
   end
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: "deals#index"
+  root to: "welcome#index"
 
-  resources :deals, only: %w(show index)
-  # resources :deals
+  resources :deals, only: [:show, :index]
+
+  resources :places, only: [:show, :index]
 end

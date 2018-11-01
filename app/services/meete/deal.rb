@@ -6,19 +6,23 @@ module Meete
                   :logo,
                   :percent,
                   :point,
-                  :location  
+                  :locations
     MAX_LIMIT = 12
     CACHE_DEFAULTS = { expires_in: 7.days, force: false }
 
     def self.random(query, clear_cache)
       cache = CACHE_DEFAULTS.merge({ force: clear_cache })
       response = Request.where('deals', cache, query)
-      deals = response.fetch('deals', []).map { |deal| Deal.new(deal) }
+      deals = response.fetch('deals', []).map { |deal| 
+        deal["avatar"] = 'https://media.meete.co/cache/0x0/' + deal.values[2]
+        Deal.new(deal)
+      }
       [ deals, response[:errors] ]
     end
 
     def self.find(id)
       response = Request.get("deals/#{id}", CACHE_DEFAULTS)
+      response["avatar"] = 'https://media.meete.co/cache/0x0/' + response["avatar"]
       Ingredient.new(response)
     end
 
