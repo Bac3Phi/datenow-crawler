@@ -34,7 +34,7 @@ gem 'active_model_serializers'
 gem 'rack-cors'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.20'
   gem 'rails_12factor'
 end
 
