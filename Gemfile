@@ -32,13 +32,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faraday'
 gem 'active_model_serializers'
 gem 'rack-cors'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
+group :production, :staging do
+  gem 'pg'
+end
+
 group :test do
-  gem 'sqlite3'
+  gem 'pg'
 end
 group :development, :test do
   gem 'pry'
