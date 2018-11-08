@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Celebrations</h1>
+
+<table class=" tbl-header">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>      
+      <th scope="col">User</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date Celebration</th>
+      <th scope="col">Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @celebrations.each do |celebration| %>
+      <tr>
+        <th scope="row"><%= celebration.id %></th>
+        <td><%= celebration.user.name %></td>
+        <td><%= celebration.title %></td>
+        <td><%= celebration.date_celebration %></td>
+        <td><%= celebration.note %></td>
+        
+        <td><%= link_to 'Show', celebration %></td>
+        <td><%= link_to 'Edit', edit_celebration_path(celebration) %></td>
+        <td><%= link_to 'Destroy', celebration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Celebration', new_celebration_path %>

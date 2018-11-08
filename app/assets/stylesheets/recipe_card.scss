@@ -30,11 +30,15 @@ body{background:url('https://photos-3.dropbox.com/thumb/AADg1EjB8hBTVuDbcwMYVarS
 	color:#fff;
 }
 .fs{
-  font-size:20px;
+  font-size:15px !important;
 }
 li {
 list-style-type:none;
 border-style: solid;
 border-width: 0 20px 20px 0;
 border-color: transparent #8bae21 transparent transparent;
+}
+
+td{
+  color: #fff;
 }

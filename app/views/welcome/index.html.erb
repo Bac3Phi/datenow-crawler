@@ -1,28 +1,36 @@
 <body>
-  
-  <div id="container">
-    <div id="cat">
-      <div>
-      </div>
-    </div>
-  
-    <div id="speech">Gâu Gâu
-      <li></li>
-      <div>
-      </div>
-    </div>
-  </div>
     <h1 class="text">DateNow API v1</p>
-    <p class="text fs">https://date-now.herokuapp.com/deals</p>
+    <p class="text fs"><b>GET </b>https://date-now.herokuapp.com/deals</p>
     <p class="text fs">:id, :title, :avatar, :logo, :percent, :point, :locations[:lat, :lon]</p>
     <hr/> 
-    <p class="text fs">https://date-now.herokuapp.com/deals/:id</p>
+    <p class="text fs"><b>GET </b> https://date-now.herokuapp.com/deals/:id</p>
     <p class="text fs">:id, :title, :type, :province, :point, :avatar, :logo, :percent, :unit</p>
     <hr/> 
-    <p class="text fs">https://date-now.herokuapp.com/places/</p>
+    <p class="text fs"><b>GET </b>https://date-now.herokuapp.com/places/</p>
     <p class="text fs">:id, :name, :avatar, :address, :districId, :districName</p>
     <hr/> 
-    <p class="text fs">https://date-now.herokuapp.com/places/:id</p>
+    <p class="text fs"><b>GET </b>https://date-now.herokuapp.com/places/:id</p>
     <p class="text fs">:id, :name, :avatar, :address, :districId, :districName, :countCheckin, :lat, :lon</p>
     <hr/> 
+    <pre>
+              users GET    /users(.:format)                 users#index
+                    POST   /users(.:format)                 users#create
+           new_user GET    /users/new(.:format)             users#new
+          edit_user GET    /users/:id/edit(.:format)        users#edit
+               user GET    /users/:id(.:format)             users#show
+                    PATCH  /users/:id(.:format)             users#update
+                    PUT    /users/:id(.:format)             users#update
+                    DELETE /users/:id(.:format)             users#destroy
+    </pre>
+    <hr/>
+    <pre>    
+    celebrations GET    /celebrations(.:format)          celebrations#index
+                 POST   /celebrations(.:format)          celebrations#create
+ new_celebration GET    /celebrations/new(.:format)      celebrations#new
+edit_celebration GET    /celebrations/:id/edit(.:format) celebrations#edit
+     celebration GET    /celebrations/:id(.:format)      celebrations#show
+                 PATCH  /celebrations/:id(.:format)      celebrations#update
+                 PUT    /celebrations/:id(.:format)      celebrations#update
+                 DELETE /celebrations/:id(.:format)      celebrations#destroy
+    </pre>
 </body>
