@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181108073304) do
+ActiveRecord::Schema.define(version: 20181112005136) do
 
   create_table "celebrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20181108073304) do
     t.date     "start_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "user_token"
   end
 
 end
