@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20181118125746) do
     t.string   "lover_name"
     t.string   "lover_avatar"
     t.date     "start_date"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string   "authentication_token"
+    t.string   "encrypted_password",     default: "", null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

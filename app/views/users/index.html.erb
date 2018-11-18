@@ -13,7 +13,7 @@
       <th scope="col">Lover Name</th>
       <th scope="col">Lover Avatar</th>
       <th scope="col">Start Date</th>
-      <th scope="col" colspan="3"></th>
+      <th scope="col" colspan="4"></th>
     </tr>
   </thead>
 
@@ -32,6 +32,7 @@
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Logout', destroy_user_session_path %></td>
       </tr>
     <% end %>
   </tbody>
