@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-                       sessions: "api/sessions",
-                       registrations: "api/registrations",
+                       sessions: "users/sessions",
+                       registrations: "users/registrations",
                      }
-  namespace :api do
-    resources :problems
-    resources :services
+  namespace :users do
     devise_scope :user do
       post "/sign_in", :to => "sessions#create"
       post "/sign_up", :to => "registrations#create"
@@ -17,7 +15,9 @@ Rails.application.routes.draw do
   resources :users
   resources :celebrations
 
-  resources :deals, only: [:show, :index]
+  resources :deals, only: [:show, :index] do
+    get "/places", :to => "deals#places"
+  end
 
   resources :places, only: [:show, :index]
 end

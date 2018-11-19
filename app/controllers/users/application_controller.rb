@@ -1,4 +1,4 @@
-class Api::ApplicationController < ActionController::Base
+class Users::ApplicationController < ActionController::Base
   include ActionController::HttpAuthentication::Basic::ControllerMethods
   include ActionController::ImplicitRender
   # before_filter :authenticate

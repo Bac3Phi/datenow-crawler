@@ -1,5 +1,4 @@
 class DealsController < ApplicationController
-
   def index
     @refresh_params = refresh_params
     @deals, @errors = Meete::Deal.random(query, clear_cache)
@@ -11,7 +10,13 @@ class DealsController < ApplicationController
     render json: @deal
   end
 
+  def places
+    @deal = Meete::Deal.find_places(params[:deal_id])
+    render json: @deal
+  end
+
   private
+
   def query
     request.query_parameters
   end
@@ -21,8 +26,8 @@ class DealsController < ApplicationController
   end
 
   def refresh_params
-    refresh = { clear_cache: true }
-    refresh.merge!({ query: query }) if query.present?
+    refresh = {clear_cache: true}
+    refresh.merge!({query: query}) if query.present?
     refresh
   end
 end

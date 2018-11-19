@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    render json: @user.as_json
+    # @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
-  def show; end
+  def show
+    render json: @user
+  end
 
   # GET /users/new
   def new
@@ -39,14 +42,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      render :json => {status: :ok, location: @user}
+    else
+      Rails.logger.info(@user.errors.messages.inspect)
+      render :json => {error: :@user.errors, status: :unprocessable_entity}
     end
   end
 
