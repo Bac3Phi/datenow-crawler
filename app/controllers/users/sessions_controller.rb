@@ -5,9 +5,9 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    user = current_user
+    user = User.find_by_email(params[:user][:email].downcase)
     unless user.nil?
-      if user.valid_password? params[:password]
+      if user.valid_password? params[:user][:password]
         render :json => {:success => true, :user => user}
         return
       end
