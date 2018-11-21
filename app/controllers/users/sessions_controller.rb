@@ -2,6 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   prepend_before_action :require_no_authentication, only: [:create]
   before_action :ensure_params_exist, only: [:create]
   skip_before_action :verify_authenticity_token
+  skip_before_action :verify_signed_out_user
   respond_to :json
 
   def create
@@ -16,11 +17,17 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    sign_out(resource_name)
-    render :json => {:success => true, :message => "Logout successful"}
+    if sign_out(resource_name)
+      render :json => {:success => true, :message => "Logout successful"}
+    end
+    render :json => {:success => false, :message => "Logout failed"}
   end
 
   protected
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
 
   def ensure_params_exist
     return unless params[:user].blank?
