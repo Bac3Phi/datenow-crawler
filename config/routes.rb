@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   root to: "welcome#index"
-  resources :users
+  resources :users 
+  post "/users/check_token", :to => "users#check_token"
+
   resources :celebrations
 
   resources :deals, only: [:show, :index] do
