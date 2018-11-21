@@ -19,6 +19,7 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     if sign_out(resource_name)
       render :json => {:success => true, :message => "Logout successful"}
+      return
     end
     render :json => {:success => false, :message => "Logout failed"}
   end
