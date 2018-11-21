@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def check_tokena
+  def check_token
     user = User.find_by_authentication_token(params[:user][:authentication_token])
     unless user.nil?
         render :json => {:success => true, :message => "Authenticated successful"}
