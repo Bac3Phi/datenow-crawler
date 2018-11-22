@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      render :json => {success: :true, user: @user}
+      render :json => {success: true, user: @user}
     else
       Rails.logger.info(@user.errors.messages.inspect)
       render :json => {error: :@user.errors, status: :unprocessable_entity}
@@ -63,8 +63,8 @@ class UsersController < ApplicationController
   def check_token
     user = User.find_by_authentication_token(params[:user][:authentication_token])
     unless user.nil?
-        render :json => {:success => true, :message => "Authenticated successful", :user => user}
-        return
+      render :json => {:success => true, :message => "Authenticated successful", :user => user}
+      return
     end
     render :json => {:success => false, :message => "Wrong authentication token"}
   end
