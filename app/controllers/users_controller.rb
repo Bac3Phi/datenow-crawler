@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      render :json => {status: :ok, location: @user}
+      render :json => {success: :true, user: @user}
     else
       Rails.logger.info(@user.errors.messages.inspect)
       render :json => {error: :@user.errors, status: :unprocessable_entity}
