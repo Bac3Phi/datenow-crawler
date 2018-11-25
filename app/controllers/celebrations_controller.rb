@@ -29,11 +29,11 @@ class CelebrationsController < ApplicationController
 
     respond_to do |format|
       if @celebration.save
+        format.json { render :json => {:success => true, celebration: @celebration} }
         format.html { redirect_to @celebration, notice: "Celebration was successfully created." }
-        format.json { render :show, status: :created, location: @celebration }
       else
+        format.json { render :json => {:success => false, message: @celebration.errors} }
         format.html { render :new }
-        format.json { render json: @celebration.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +43,11 @@ class CelebrationsController < ApplicationController
   def update
     respond_to do |format|
       if @celebration.update(celebration_params)
+        format.json { render :json => {:success => true, celebration: @celebration} }
         format.html { redirect_to @celebration, notice: "Celebration was successfully updated." }
-        format.json { render :show, status: :ok, location: @celebration }
       else
+        format.json { render :json => {:success => false, message: @celebration.errors} }
         format.html { render :edit }
-        format.json { render json: @celebration.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,8 +57,8 @@ class CelebrationsController < ApplicationController
   def destroy
     @celebration.destroy
     respond_to do |format|
+      format.json { render :json => {:success => true, :message => "Celebration was destroyed"} }
       format.html { redirect_to celebrations_url, notice: "Celebration was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
