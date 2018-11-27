@@ -1,6 +1,7 @@
 module Meete
   class Ingredient < Base
     attr_accessor :id,
+                  :body,
                   :title,
                   :type,
                   :province,
