@@ -22,7 +22,8 @@ gem 'coffee-rails', '~> 4.1.0'
 #upload image to public server
 gem 'carrierwave'
 gem 'carrierwave-base64'
-
+gem "mini_magick"
+gem "fog"
 #authentication gem
 gem 'devise'
 gem 'simple_token_authentication','~> 1.0'
