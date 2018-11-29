@@ -11,14 +11,14 @@ class Request
     end
 
     def errors(response)
-      error = { errors: { status: response["status"], message: response["message"] } }
+      error = {errors: {status: response["status"], message: response["message"]}}
       response.merge(error)
     end
 
     def get_json(root_path, cache, query = {})
-      query_string = query.map{|k,v| "#{k}=#{v}"}.join("&")
-      path = query.empty?? root_path : "#{root_path}?#{query_string}"
-      response =  Rails.cache.fetch(path, expires_in: cache[:expires_in], force: cache[:force]) do
+      query_string = query.map { |k, v| "#{k}=#{v}" }.join("&")
+      path = query.empty? ? root_path : "#{root_path}?#{URI.encode(query_string)}"
+      response = Rails.cache.fetch(path, expires_in: cache[:expires_in], force: cache[:force]) do
         api.get(path)
       end
       [JSON.parse(response.body), response.status]
